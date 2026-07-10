@@ -1,0 +1,77 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.card-form {
+  max-width: $form-width;
+  margin: $space-lg auto;
+  background: $color-surface;
+  padding: $space-lg;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+
+  h2,
+  h3 {
+    margin-top: 0;
+    color: $color-primary;
+  }
+}
+
+.field {
+  width: 100%;
+  padding: $space-sm;
+  margin: $space-xs 0;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  font-family: inherit;
+  font-size: 15px;
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+  }
+
+  &--textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  &--file {
+    border: none;
+    padding-left: 0;
+  }
+}
+
+.btn {
+  @include button;
+  width: 100%;
+  margin-top: $space-sm;
+}
+
+.btn--ghost {
+  @include button($color-primary);
+  width: auto;
+  padding: $space-sm $space-md;
+}
+
+.form__message {
+  margin: $space-md 0 0;
+  min-height: 20px;
+  text-align: center;
+
+  &--error {
+    color: $color-danger;
+  }
+
+  &--success {
+    color: $color-success;
+  }
+}
+
+.form__footer {
+  margin-top: $space-md;
+  text-align: center;
+
+  a {
+    color: $color-link;
+  }
+}

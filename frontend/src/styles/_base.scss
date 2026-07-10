@@ -1,0 +1,26 @@
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-base;
+  background: $color-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  background: $color-bg;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page__body {
+  flex: 1;
+}

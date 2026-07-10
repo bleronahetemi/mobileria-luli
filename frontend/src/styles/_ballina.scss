@@ -1,0 +1,168 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  background: url('../assets/hero.png') center / cover no-repeat;
+}
+
+.hero__content {
+  @include shell;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  max-width: 45%;
+  color: $color-surface;
+
+  @include respond-below($breakpoint-md) {
+    max-width: 100%;
+  }
+}
+
+.hero__title {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 0 0 $space-md;
+
+  @include respond-below($breakpoint-sm) {
+    font-size: 32px;
+  }
+}
+
+.hero__subtitle {
+  font-size: 18px;
+  margin: 0 0 30px;
+}
+
+.hero__cta {
+  @include button;
+}
+
+.products {
+  @include shell;
+  padding-top: $space-md;
+  padding-bottom: $space-md;
+  background: $color-bg;
+}
+
+.products__inner {
+  margin-top: $space-xl;
+}
+
+.search {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.search__icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $color-accent;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.search__input {
+  width: 100%;
+  padding: 12px 15px 12px 45px;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  background: $color-surface;
+
+  &:focus {
+    border-color: $color-accent;
+  }
+}
+
+.products__state {
+  color: $color-primary;
+  text-align: center;
+  padding: $space-lg;
+}
+
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: $color-surface;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.card__image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.card__body {
+  padding: $space-md;
+}
+
+.card__title {
+  margin: 0 0 $space-sm;
+  font-size: 18px;
+  color: $color-primary;
+}
+
+.card__text {
+  margin: 0;
+  color: $color-accent;
+  font-size: 14px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-xs;
+  margin-top: $space-lg;
+}
+
+.pagination__arrow,
+.pagination__page {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $color-accent;
+  border-radius: $radius-sm;
+
+  &:disabled {
+    color: $color-muted;
+    cursor: not-allowed;
+  }
+}
+
+.pagination__arrow {
+  font-size: 18px;
+  color: $color-primary;
+  padding: 5px $space-sm;
+}
+
+.pagination__page {
+  padding: $space-xs 12px;
+  font-size: 16px;
+
+  &--active {
+    background: $color-primary;
+    color: $color-surface;
+    font-weight: bold;
+  }
+}

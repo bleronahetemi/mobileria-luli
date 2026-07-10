@@ -1,0 +1,33 @@
+@use 'variables' as *;
+
+@mixin shell {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+}
+
+@mixin button($bg: $color-accent, $fg: $color-surface) {
+  background: $bg;
+  color: $fg;
+  border: none;
+  border-radius: $radius-md;
+  padding: 15px $space-lg;
+  font-size: 16px;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
